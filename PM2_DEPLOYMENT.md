@@ -21,16 +21,18 @@ npm run build
 pm2 startup
 ```
 
+**Important**: Use `ecosystem.config.cjs` (not `.js`) because the project uses `"type": "module"` in package.json
+
 ## Starting the Bot
 
 ### Start with PM2
 
 ```bash
 # Start the bot
-pm2 start ecosystem.config.js
+pm2 start ecosystem.config.cjs
 
 # Start with a specific app name
-pm2 start ecosystem.config.js --name "gold-discord-bot"
+pm2 start ecosystem.config.cjs --name "gold-discord-bot"
 ```
 
 ### Monitor the Bot
@@ -64,7 +66,7 @@ pm2 delete gold-discord-bot
 ### Environment Variables
 
 -   Make sure your `.env` file is in the project root
--   The ecosystem.config.js automatically loads variables from `.env`
+-   The ecosystem.config.cjs automatically loads variables from `.env`
 -   Required variables:
     -   `TOKEN` - Discord bot token
     -   `CLIENT_ID` - Discord application ID
@@ -112,7 +114,7 @@ For production:
 
 1. Update `.env` with production values
 2. Build the project: `npm run build`
-3. Start with PM2: `pm2 start ecosystem.config.js --env production`
+3. Start with PM2: `pm2 start ecosystem.config.cjs --env production`
 4. Save processes: `pm2 save`
 5. Enable startup on boot: `pm2 startup`
 
@@ -126,14 +128,14 @@ For production:
 
 ### Memory issues
 
--   Increase `max_memory_restart` in ecosystem.config.js
+-   Increase `max_memory_restart` in ecosystem.config.cjs
 -   Monitor with: `pm2 monit`
 
 ### Logs not appearing
 
 -   Ensure `logs/` directory exists
 -   Check file permissions
--   Verify log paths in ecosystem.config.js
+-   Verify log paths in ecosystem.config.cjs
 
 ## Monitoring with Restart on Crash
 
