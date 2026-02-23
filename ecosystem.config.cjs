@@ -2,11 +2,11 @@ module.exports = {
     apps: [
         {
             name: 'gold-discord-bot',
-            script: 'npm',
-            args: 'start',
+            script: 'dist/index.js',
             cwd: './',
             instances: 1,
             exec_mode: 'fork',
+            interpreter: 'node',
             env: {
                 NODE_ENV: 'production',
                 NODE_OPTIONS: '--max_old_space_size=256'
