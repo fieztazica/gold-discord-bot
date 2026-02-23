@@ -2,8 +2,8 @@ module.exports = {
     apps: [
         {
             name: 'gold-discord-bot',
-            script: 'dist/index.js',
-            cwd: './',
+            script: 'index.js',
+            cwd: './dist',
             instances: 1,
             exec_mode: 'fork',
             interpreter: 'node',
