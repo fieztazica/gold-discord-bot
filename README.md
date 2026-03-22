@@ -1,28 +1,32 @@
-# Typescript-Discord.js-v14-Template
+# Gold Price Watcher Discord Bot
 
-This repository provides a rapid deployment template for building Discord bots using Discord.js version 14 with Typescript. It includes ready-to-use code for handling commands, events, and interactions, so you can get your bot up and running quickly.
+> This bot is vibe-coded and is built using the [Typescript Discord.js v14 Template](https://github.com/OfficialDelta/Typescript-Discord.js-v14-Template).
 
-## 📦 Installation
+This is a Discord bot that provides daily updates on gold prices. It fetches gold price data from an API and posts it in a specified Discord channel at scheduled times.
 
-Follow these steps to get started:
+## PM2 Deployment Guide
 
-1. **Clone the Repository:** Use the command below to clone the project.
-   ```bash
-   git clone https://github.com/OfficialDelta/Typescript-Discord.js-v14-Template.git YOUR_PROJECT_NAME
-   ```
+For instructions on how to deploy this bot using PM2, please refer to the [PM2 Deployment Guide](PM2_DEPLOYMENT.md).
 
-2. **Configure Environment:** Rename `RENAME.env` to `.env`, and update the `.env` and `config.json` files with the required settings specific to your bot.
+## Features
 
-3. **Customize Commands:** Follow the provided templates to create and customize commands for your bot. Everything is set up to make this process as smooth as possible.
+-   Daily gold price updates at specified times
+-   Configurable gold price API and scheduling
+-   Easy deployment with PM2
 
-## 🏗️ Building
+## Configuration
 
-Use the predefined scripts in the `package.json` file to build and manage your project. These scripts streamline various tasks, such as compiling and linting.
+The bot can be configured using the `config.json` file. Here are the available options:
 
-## ✉️ Support & Contributions
+-   `prefix`: The command prefix for the bot (default: `!`)
+-   `goldPriceCron`: The cron expression for scheduling gold price updates (e.g., `0 7,19 * * *` for 7 AM and 7 PM daily)
+-   `goldPriceTimezone`: The timezone for scheduling the cron job (e.g., `Asia/Ho_Chi_Minh`)
+-   `goldPriceId`: The ID for fetching gold price data from the API (e.g., `SJ9999`)
 
-Feel free to open issues or submit pull requests if you have suggestions, questions, or run into any problems. Your contributions are welcome!
+## Contributing
 
----
+Contributions are welcome! Please feel free to submit issues or pull requests.
 
-Happy coding, and enjoy building your Discord bot with the Typescript-Discord.js-v14-Template! 🚀
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.

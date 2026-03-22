@@ -1,3 +1,6 @@
 {
-    "prefix": "!"
+    "prefix": "!",
+    "goldPriceCron": "0 7,19 * * *",
+    "goldPriceTimezone": "Asia/Ho_Chi_Minh",
+    "goldPriceId": "SJ9999"
 }

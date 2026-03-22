@@ -2,6 +2,7 @@ import { CronJob } from 'cron'
 import { ChannelType, type TextChannel } from 'discord.js'
 import { fetchGoldPrices } from '../apis/goldprice.js'
 import createGoldPriceEmbed from '../embeds/goldprice.embed.js'
+import { default as config } from '../config.json' assert { type: 'json' }
 
 const { DEFAULT_GUILD_ID, CHANNEL_ID } = process.env as {
     DEFAULT_GUILD_ID: string
@@ -9,13 +10,13 @@ const { DEFAULT_GUILD_ID, CHANNEL_ID } = process.env as {
 }
 
 export const goldpriceDaily = new CronJob(
-    // Cron expression: 0 7 * * * = Every day at 7:00 AM
-    '0 7 * * *',
+    // Cron expression: following the config, e.g. '0 7,19 * * *' for 7 AM and 7 PM daily
+    config.goldPriceCron,
     async () => {
         try {
             console.log('Running daily gold price job...')
 
-            const data = await fetchGoldPrices('SJ9999', null, null)
+            const data = await fetchGoldPrices(config.goldPriceId, null, null)
 
             if (!data.success) {
                 console.error('Failed to fetch gold prices from API')
@@ -52,7 +53,7 @@ export const goldpriceDaily = new CronJob(
     },
     null,
     false, // Start: false, we'll start it manually
-    'Asia/Ho_Chi_Minh' // Timezone: Ho Chi Minh
+    config.goldPriceTimezone // Timezone: following the config, e.g. 'Asia/Ho_Chi_Minh'
 )
 
 export function startGoldpriceDailyJob(): void {
